@@ -1,0 +1,67 @@
+version: 2
+
+sources:
+  - name: star_lake_bdd
+    description: StarBake is a fictional & demonstrative project designed to showcase the usage of Starlake for data transformation and analytics in an e-commerce bakery business setting
+    database: starbake
+    schema: star_lake_bdd
+    tables:
+
+      - name: customers_1
+        description: This table contains information about the bakery's customers. The data for this table arrives in CSV format, updated daily with deltas
+        columns:
+          - name: customer_id  
+            tests:
+             - not_null
+
+
+
+      - name: orders_1
+        description: This table contains information about the bakery's orders. The data for this table arrives in JSON format, updated daily with deltas
+        columns:
+          - name: order_id  
+            tests:
+             - not_null
+
+             
+      - name: ingredients
+        description: This table contains information about the bakery's ingredients. The data for this table arrives in TSV format, updated daily with deltas.
+        columns:
+          - name: ingredient_id  
+            tests:
+             - not_null
+                   
+
+
+     
+
+
+      - name: products_1
+        description: This table contains information about the bakery's products. The data for this table arrives in JSON_ND format, updated daily with deltas.
+        columns:
+          - name: product_id  
+            tests:
+             - not_null
+
+      - name: CustomerLifeTimeValue
+        description: This table gives a projection of the total value a customer may bring to the bakery over the entirety of their relationship
+        columns:
+          - name: customer_id  
+            tests:
+             - not_null 
+               
+
+      - name: ProductPerformance
+        description: This table provides details on the performance of each product sold at the bakery, including the total number of units sold, total revenue generated, and average revenue per unit sold
+        columns:
+          - name: Product_id  
+            tests:
+             - not_null       
+
+
+      - name: ProductProfitability
+        description: This table offers insights into the profitability of each product. It considers the cost of production
+        columns:
+          - name: Product_id  
+            tests:
+             - not_null       
